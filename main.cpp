@@ -9,6 +9,8 @@ int main(int argc, char** argv) {
   int Letras=y.ContadorLetras(y.getCadena());
   int Espacios=y.ContadorEspacios(y.getCadena());
   int Minus=y.ContadorMinus(y.getCadena());
-  
+  int Mayus=y.ContadorMayus(y.getCadena());
+  int Palabras=y.ContadorPalabras(y.getCadena());
+  y.Salida(Letras,Espacios,Mayus,Minus,Palabras,y.getCadena());
 	return 0;
 }

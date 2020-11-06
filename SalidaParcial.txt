@@ -1,0 +1,6 @@
+La cadena es: PuTo El QuE Lo LeA XD         
+Tiene 16 letras
+Tiene 5 espacios
+Tiene 10 mayusculas
+Tiene 6 minusculas
+Tiene 6 palabras

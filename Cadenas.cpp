@@ -7,12 +7,10 @@
 			{
 			return cadena;
 					}
-   Cadenas::Cadenas(char  cadw[500]){
-		setCadena(cadw);
-	}
+
 	Cadenas::Cadenas(){
-	
-	}
+	        
+			}
 void Cadenas::Entrada(){
 	ifstream t("texto301.txt");
     string str((istreambuf_iterator<char>(t)),istreambuf_iterator<char>());
@@ -32,15 +30,20 @@ void Cadenas::Entrada(){
 		}
 		
 		int Cadenas::ContadorEspacios (const char * cad){
-			int longitud = strlen (cad);
 			int espacio=0;
-			for(int i=0;i<longitud;++i){
-				if(cad[i]==' '){
-					++espacio;
+			int i=0;
+			char c;
+			int minus=0;
+			while(cad[i]){
+				c=cad[i];
+				if(isspace(c)&&cad[i+1]!=' '){
+					espacio++;
 				}
+				++i;
 			}
-			return espacio;
+			return espacio-1;
 		}
+		
 		int Cadenas::ContadorMinus(const char * cad){
 			int i=0;
 			char c;
@@ -52,9 +55,10 @@ void Cadenas::Entrada(){
 				}
 				++i;
 			}
-		
 			return minus;
 		}
+		
+		
 		int Cadenas::ContadorMayus(const char * cad){
 			int i=0;
 			char c;
@@ -68,10 +72,27 @@ void Cadenas::Entrada(){
 			}
 			return mayus;
 		}
-		int Cadenas::ContadorCadena(const char * cad){
-			
+		
+		
+	int Cadenas::ContadorPalabras(const char * cad){
+      int Palabras = 0;
+	  int longitud=strlen (cad);
+      for(int i=0;i<longitud;++i){
+				if(cad[i]==' '&&cad[i+1]!=' '){
+					++Palabras;
+				}
+			}
+      return Palabras;
 		}
-		void Cadenas::Salida(){
-			
+		
+		
+		void Cadenas::Salida(int letras,int espacios,int mayusculas,int minusculas,int palabras,const char * cad){
+			ofstream salida ("SalidaParcial.txt");
+			salida<<"La cadena es: "<<cad<<endl;
+			salida<<"Tiene "<<letras<<" letras"<<endl;
+			salida<<"Tiene "<<espacios<<" espacios"<<endl;
+			salida<<"Tiene "<<mayusculas<<" mayusculas"<<endl;
+			salida<<"Tiene "<<minusculas<<" minusculas"<<endl;
+			salida<<"Tiene "<<palabras<<" palabras"<<endl;
 		}
 	
