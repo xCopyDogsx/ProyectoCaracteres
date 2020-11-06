@@ -7,18 +7,21 @@ using namespace std;
 class Cadenas
 {
 	private:
-		char  * cadena;
+		char  cadena[500];
+		
+		
 	public:
 		void Entrada();
-		char * ContadorLetras(char *);
-		char * ContadorEspacios (char *);
-		char * ContadorMinus(char *);
-		char * ContadorMayus(char *);
-		char * ContadorCadena(char *);
+		int ContadorLetras(const char *);
+		int ContadorEspacios (const char *);
+		int ContadorMinus(const char *);
+		int ContadorMayus(const char *);
+		int ContadorCadena(const char *);
 		void Salida();
-		void setCadena( char *);
+		void setCadena(const char *);
 		char * getCadena();
-		Cadenas(char *); 
+		Cadenas();
+		Cadenas(char[500]); 
 };
 
 #endif

@@ -1,35 +1,74 @@
 #include "Cadenas.h"
 
-	void Cadenas::setCadena(char * cadenaX){
-			cadena=cadenaX;
+	void Cadenas::setCadena(const char *cadenaX){
+			strcpy(cadena,cadenaX);
 					}
 	char * Cadenas::getCadena()
 			{
 			return cadena;
 					}
-   Cadenas::Cadenas(char * cadw){
+   Cadenas::Cadenas(char  cadw[500]){
 		setCadena(cadw);
 	}
+	Cadenas::Cadenas(){
+	
+	}
 void Cadenas::Entrada(){
-	ifstream entrada("texto301");
-	char * cad;
-	while(!entrada.eof()&&entrada>>cad){
-				  Cadenas x(cad);	
-		         }
+	ifstream t("texto301.txt");
+    string str((istreambuf_iterator<char>(t)),istreambuf_iterator<char>());
+	const char *cstr = str.c_str();		
+	setCadena(cstr);
 }
-		char * Cadenas::ContadorLetras(char * cad){
-			
+
+		int Cadenas::ContadorLetras(const char * cad){
+			int longitud = strlen (cad);
+			int letras=0;
+			for(int i=0;i<longitud;++i){
+				if(cad[i]!=' '){
+					++letras;
+				}
+			}
+			return letras;
 		}
-		char * Cadenas::ContadorEspacios (char * cad){
-			
+		
+		int Cadenas::ContadorEspacios (const char * cad){
+			int longitud = strlen (cad);
+			int espacio=0;
+			for(int i=0;i<longitud;++i){
+				if(cad[i]==' '){
+					++espacio;
+				}
+			}
+			return espacio;
 		}
-		char * Cadenas::ContadorMinus(char * cad){
-			
+		int Cadenas::ContadorMinus(const char * cad){
+			int i=0;
+			char c;
+			int minus=0;
+			while(cad[i]){
+				c=cad[i];
+				if(islower(c)){
+					minus++;
+				}
+				++i;
+			}
+		
+			return minus;
 		}
-		char * Cadenas::ContadorMayus(char * cad){
-			
+		int Cadenas::ContadorMayus(const char * cad){
+			int i=0;
+			char c;
+			int mayus=0;
+			while(cad[i]){
+				c=cad[i];
+				if(isupper(c)){
+					++mayus;
+				}
+				++i;
+			}
+			return mayus;
 		}
-		char * Cadenas::ContadorCadena(char * cad){
+		int Cadenas::ContadorCadena(const char * cad){
 			
 		}
 		void Cadenas::Salida(){
